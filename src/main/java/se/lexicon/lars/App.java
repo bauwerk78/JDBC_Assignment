@@ -3,7 +3,6 @@ package se.lexicon.lars;
 import se.lexicon.lars.dao.CityDaoJDBC;
 import se.lexicon.lars.model.City;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class App {
