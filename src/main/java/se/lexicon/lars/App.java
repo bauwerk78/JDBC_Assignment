@@ -6,15 +6,13 @@ import se.lexicon.lars.model.City;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Hello world!
- */
 public class App {
     public static void main(String[] args) {
 
         CityDaoJDBC cityDaoJDBC = new CityDaoJDBC();
+
         List<City> listAll = cityDaoJDBC.findAll();
-        System.out.println("Printing findall.");
+        System.out.println("Printing find all.");
         listAll.forEach(System.out::println);
 
         listAll = cityDaoJDBC.findByCode("SWE");
@@ -28,11 +26,12 @@ public class App {
         City nisseCity = new City("Nissestad" , "SWE", "Nisseboa", 50);
 
         cityDaoJDBC.add(nisseCity);
-        listAll = cityDaoJDBC.findByName("Nissestad");
         System.out.println("Added new city.");
+        listAll = cityDaoJDBC.findByName("Nissestad");
+        System.out.println("Printing the new city from database.");
         listAll.forEach(System.out::println);
 
         cityDaoJDBC.delete(nisseCity);
-        System.out.println("Deleted the new city.");
+        System.out.println("Deleted the newly added city from database.");
     }
 }
