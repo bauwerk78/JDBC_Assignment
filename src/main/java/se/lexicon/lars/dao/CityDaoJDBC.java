@@ -145,9 +145,10 @@ public class CityDaoJDBC implements CityDao {
     @Override
     public City update(City city) {
         try (Connection connection = DriverManager.getConnection(connectionString, userName, password);
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO city (Name, CountryCode, District, Population) VALUES (?,?,?,?)")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE city SET Name = ?, CountryCode = ?, District = ?, Population = ? WHERE " +
+                     "Name = ?, CountryCode = ?, District = ?, Population = ?")) {
 
-            //No execute statement.
+            //No execute statement added since this function does nothing.
 
         } catch (SQLException e) {
             e.printStackTrace();
